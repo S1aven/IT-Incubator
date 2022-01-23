@@ -1,10 +1,14 @@
 import React from "react";
 
-function Star() {
+function Star(props:any) {
+
   console.log('Star rendering');
-  return (
-    <span>star</span>
-  )
+
+  if(props.selected === true) {
+    return <span><b>star </b></span>
+  } else {
+    return <span>star </span>
+  }
 }
 
 export default Star;
