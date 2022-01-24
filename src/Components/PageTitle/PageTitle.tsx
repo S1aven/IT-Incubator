@@ -1,8 +1,12 @@
 import React from "react";
 
-function PageTitle(props:any) {
+type PageTitlePropsType = {
+  title: string
+}
+
+function PageTitle(props: PageTitlePropsType) {
   return (
-    <h3>{props.title}</h3>
+    <h1>{props.title}</h1>
   )
 }
 
