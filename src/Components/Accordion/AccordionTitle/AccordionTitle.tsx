@@ -5,7 +5,7 @@ type AccordionTitlePropsType = {
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
-  console.log('AccordionTitle rendering');
+  console.log('UncontrolledAccordionTitle rendering');
   return (
     <h3>{props.title}</h3>
   )

@@ -1,6 +1,6 @@
 import React from "react";
 
-function AccordionBody() {
+function UncontrolledAccordionBody() {
   console.log('UncontrolledAccordionBody rendering');
   return (
       <ul>
@@ -11,4 +11,4 @@ function AccordionBody() {
   )
 }
 
-export default AccordionBody;
+export default UncontrolledAccordionBody;
