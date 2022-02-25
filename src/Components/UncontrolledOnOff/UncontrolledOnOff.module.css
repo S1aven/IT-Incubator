@@ -1,0 +1,30 @@
+.buttonPanel {
+  display: flex;
+  align-items: center;
+}
+
+.signalOn {
+  width: 15px;
+  height: 15px;
+  background-color: darkseagreen;
+  display: block;
+  margin-left: 20px;
+  border-radius: 50%;
+}
+
+.signalOff {
+  width: 15px;
+  height: 15px;
+  background-color: crimson;
+  display: block;
+  margin-left: 20px;
+  border-radius: 50%;
+}
+
+.onActive {
+  background-color: darkseagreen;
+}
+
+.offActive {
+  background-color: crimson;
+}

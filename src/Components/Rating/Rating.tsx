@@ -1,87 +1,29 @@
 import React from "react";
 import Star from "./Star/Star";
+import {StateType} from "../../App";
+
+type ValueType = 0 | 1 | 2 | 3 | 4 | 5
 
 type RatingPropsType = {
-  value: 0 | 1 | 2 | 3 | 4 | 5
+  state: StateType[]
+  value: ValueType
+  valueStarChange: (value: ValueType) => void
 }
 
 function Rating(props: RatingPropsType) {
 
+  const newState = props.state.map(s => <Star
+    key={s.id}
+    selected={props.value >= s.value}
+    state={s}
+    valueStarChange={props.valueStarChange}
+  />)
+
   return (
     <div>
-      <Star selected={props.value > 0}/>
-      <Star selected={props.value > 1}/>
-      <Star selected={props.value > 2}/>
-      <Star selected={props.value > 3}/>
-      <Star selected={props.value > 4}/>
+      {newState}
     </div>
   )
-
-  // if (props.value === 1) {
-  //   return (
-  //     <div>
-  //       <UncontrolledStar selected={true}/>
-  //       <UncontrolledStar selected={false}/>
-  //       <UncontrolledStar selected={false}/>
-  //       <UncontrolledStar selected={false}/>
-  //       <UncontrolledStar selected={false}/>
-  //     </div>
-  //   )
-  // }
-  // if (props.value === 2) {
-  //   return (
-  //     <div>
-  //       <UncontrolledStar selected={true}/>
-  //       <UncontrolledStar selected={true}/>
-  //       <UncontrolledStar selected={false}/>
-  //       <UncontrolledStar selected={false}/>
-  //       <UncontrolledStar selected={false}/>
-  //     </div>
-  //   )
-  // }
-  // if (props.value === 3) {
-  //   return (
-  //     <div>
-  //       <UncontrolledStar selected={true}/>
-  //       <UncontrolledStar selected={true}/>
-  //       <UncontrolledStar selected={true}/>
-  //       <UncontrolledStar selected={false}/>
-  //       <UncontrolledStar selected={false}/>
-  //     </div>
-  //   )
-  // }
-  // if (props.value === 4) {
-  //   return (
-  //     <div>
-  //       <UncontrolledStar selected={true}/>
-  //       <UncontrolledStar selected={true}/>
-  //       <UncontrolledStar selected={true}/>
-  //       <UncontrolledStar selected={true}/>
-  //       <UncontrolledStar selected={false}/>
-  //     </div>
-  //   )
-  // }
-  // if (props.value === 5) {
-  //   return (
-  //     <div>
-  //       <UncontrolledStar selected={true}/>
-  //       <UncontrolledStar selected={true}/>
-  //       <UncontrolledStar selected={true}/>
-  //       <UncontrolledStar selected={true}/>
-  //       <UncontrolledStar selected={true}/>
-  //     </div>
-  //   )
-  // }
-  //
-  // return (
-  //   <div>
-  //     <UncontrolledStar selected={false}/>
-  //     <UncontrolledStar selected={false}/>
-  //     <UncontrolledStar selected={false}/>
-  //     <UncontrolledStar selected={false}/>
-  //     <UncontrolledStar selected={false}/>
-  //   </div>
-  // )
 }
 
 export default Rating;

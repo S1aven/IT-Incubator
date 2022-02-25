@@ -4,7 +4,6 @@ import UncontrolledAccordionBody from "./UncontrolledAccordionBody/UncontrolledA
 
 type AccordionPropsType = {
   title: string
-  // collapsed: boolean
 }
 
 function UncontrolledAccordion(props: AccordionPropsType) {
@@ -22,21 +21,6 @@ function UncontrolledAccordion(props: AccordionPropsType) {
       {!collapsed && <UncontrolledAccordionBody/>}
     </div>
   )
-  //
-  // if (props.collapsed) {
-  //   return (
-  //     <div>
-  //       <UncontrolledAccordionTitle title={props.title}/>
-  //     </div>
-  //   )
-  // } else {
-  //   return (
-  //     <div>
-  //       <UncontrolledAccordionTitle title={props.title}/>
-  //       <UncontrolledAccordionBody/>
-  //     </div>
-  //   )
-  // }
 }
 
 export default UncontrolledAccordion;

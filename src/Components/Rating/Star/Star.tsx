@@ -1,7 +1,11 @@
 import React from "react";
+import {StateType} from "../../../App";
+import {ValueType} from "../../UncontrolledRating/UncontrolledRating";
 
 type StarPropsType = {
   selected: boolean
+  state: StateType
+  valueStarChange: (value: ValueType) => void
 }
 
 function Star(props: StarPropsType) {
@@ -9,17 +13,14 @@ function Star(props: StarPropsType) {
   console.log('UncontrolledStar rendering');
   return (
     <>
-      {props.selected && <span><b>star </b></span>}
-      {!props.selected && <span>star </span>}
+      <span onClick={() => {
+        props.valueStarChange(props.state.value)
+      }}>
+        {props.selected ? <b>{props.state.title}</b>
+          : props.state.title}
+      </span>
     </>
   )
-
-
-  // if (props.selected) {
-  //   return <span><b>star </b></span>
-  // } else {
-  //   return <span>star </span>
-  // }
 }
 
 export default Star;

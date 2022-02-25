@@ -5,6 +5,7 @@ import AccordionBody from "./AccordionBody/AccordionBody";
 type AccordionPropsType = {
   title: string
   collapsed: boolean
+  collapsedChange: (collapsed: boolean) => void
 }
 
 function Accordion(props: AccordionPropsType) {
@@ -12,25 +13,10 @@ function Accordion(props: AccordionPropsType) {
 
   return (
     <div>
-      <AccordionTitle title={props.title}/>
+      <AccordionTitle title={props.title} collapsedChange={props.collapsedChange}/>
       {!props.collapsed && <AccordionBody/>}
     </div>
   )
-  //
-  // if (props.collapsed) {
-  //   return (
-  //     <div>
-  //       <UncontrolledAccordionTitle title={props.title}/>
-  //     </div>
-  //   )
-  // } else {
-  //   return (
-  //     <div>
-  //       <UncontrolledAccordionTitle title={props.title}/>
-  //       <UncontrolledAccordionBody/>
-  //     </div>
-  //   )
-  // }
 }
 
 export default Accordion;
