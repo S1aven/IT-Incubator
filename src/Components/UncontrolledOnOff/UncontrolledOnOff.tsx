@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import s from './UncontrolledOnOff.module.css'
 
 type OnOffPropsType = {
-  // active: boolean
+  onChange: (active: boolean) => void
 }
 
 function UncontrolledOnOff(props: OnOffPropsType) {
@@ -24,10 +24,26 @@ function UncontrolledOnOff(props: OnOffPropsType) {
     backgroundColor: active ? 'darkseagreen' : 'white',
   }
 
+  const onClicked = () => {
+    setActive(true)
+    props.onChange(true)
+  }
+
+  const offClicked = () => {
+    setActive(false)
+    props.onChange(false)
+  }
+
   return (
     <div>
-      <button style={onStyle} onClick={() => {setActive(true)}}>on</button>
-      <button style={offStyle} onClick={() => {setActive(false)}}>off</button>
+      <button
+        style={onStyle}
+        onClick={onClicked}>on
+      </button>
+      <button
+        style={offStyle}
+        onClick={offClicked}>off
+      </button>
       <div style={indicatorStyle}></div>
     </div>
   );

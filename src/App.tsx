@@ -55,8 +55,8 @@ function App() {
       {/*<Rating value={4}/>*/}
       {/*<Rating value={5}/>*/}
       <UncontrolledRating/>
-      {/*<UncontrolledOnOff/>*/}
-      <OnOff setActive={setActive} active={active}/>
+      <UncontrolledOnOff onChange={setActive}/> {active.toString()}
+      {/*<OnOff setActive={setActive} active={active}/>*/}
     </div>
   )
 }
