@@ -7,6 +7,8 @@ import OnOff from "./Components/OnOff/OnOff";
 import UncontrolledAccordion from "./Components/UncontrolledAccordion/UncontrolledAccordion";
 import UncontrolledRating from "./Components/UncontrolledRating/UncontrolledRating";
 import UncontrolledOnOff from "./Components/UncontrolledOnOff/UncontrolledOnOff";
+import {UncontrolledInput} from "./Components/Input/UncontrolledInput";
+import {ControlledInput} from "./Components/Input/ControlledInput";
 
 type ValueType = 0 | 1 | 2 | 3 | 4 | 5
 
@@ -31,6 +33,7 @@ function App() {
   const [value, setValue] = useState<ValueType>(0)
   const [collapsed, setCollapsed] = useState<boolean>(false)
   const [active, setActive] = useState(false);
+  const [inputValue, setInputValue] = useState('')
 
   const collapsedChange = () => {
     setCollapsed(!collapsed)
@@ -57,6 +60,8 @@ function App() {
       <UncontrolledRating/>
       <UncontrolledOnOff onChange={setActive}/> {active.toString()}
       {/*<OnOff setActive={setActive} active={active}/>*/}
+      <UncontrolledInput/>
+      <ControlledInput value={inputValue} setInputValue={setInputValue}/>
     </div>
   )
 }
