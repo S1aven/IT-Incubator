@@ -6,6 +6,11 @@ type AccordionPropsType = {
   title: string
   collapsed: boolean
   collapsedChange: (collapsed: boolean) => void
+  items: {
+    id: number
+    title: string
+  }[]
+  onClick: (id: number) => void
 }
 
 function Accordion(props: AccordionPropsType) {
@@ -14,7 +19,7 @@ function Accordion(props: AccordionPropsType) {
   return (
     <div>
       <AccordionTitle title={props.title} collapsedChange={props.collapsedChange}/>
-      {!props.collapsed && <AccordionBody/>}
+      {!props.collapsed && <AccordionBody onClick={props.onClick} items={props.items}/>}
     </div>
   )
 }

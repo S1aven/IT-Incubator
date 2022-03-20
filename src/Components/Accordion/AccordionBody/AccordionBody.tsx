@@ -1,12 +1,18 @@
 import React from "react";
 
-function AccordionBody() {
-  console.log('UncontrolledAccordionBody rendering');
+type AccordionBodyPropsType = {
+  items: {
+    id: any
+    title: string
+  }[]
+  onClick: (id: number) => void
+}
+
+function AccordionBody(props: AccordionBodyPropsType) {
+
   return (
       <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
+        {props.items.map(i => <li onClick={() => {props.onClick(i.id)}} key={i.id}>{i.title}</li>)}
       </ul>
   )
 }

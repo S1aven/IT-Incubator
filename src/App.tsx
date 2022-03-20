@@ -9,6 +9,7 @@ import UncontrolledRating from "./Components/UncontrolledRating/UncontrolledRati
 import UncontrolledOnOff from "./Components/UncontrolledOnOff/UncontrolledOnOff";
 import {UncontrolledInput} from "./Components/Input/UncontrolledInput";
 import {ControlledInput} from "./Components/Input/ControlledInput";
+import {Select} from "./Components/Select/Select";
 
 type ValueType = 0 | 1 | 2 | 3 | 4 | 5
 
@@ -17,6 +18,11 @@ export type StateType = {
   id: number
   title: string
   value: ValueType
+}
+
+export type StateSelectType = {
+  id: string
+  title: string
 }
 
 function App() {
@@ -30,6 +36,12 @@ function App() {
     {id: 5, title: "star5 ", value: 5},
   ]
 
+  const stateSelect: StateSelectType[] = [
+    {id: '1', title: 'js'},
+    {id: '2', title: 'css'},
+    {id: '3', title: 'react'},
+  ]
+
   const [value, setValue] = useState<ValueType>(0)
   const [collapsed, setCollapsed] = useState<boolean>(false)
   const [active, setActive] = useState(false);
@@ -39,13 +51,23 @@ function App() {
     setCollapsed(!collapsed)
   }
 
+  function onClick(id: number) {
+    alert(id)
+  }
+
   return (
     <div className="App">
       {/*<PageTitle title={'This is APP component'}/>*/}
       {/*<PageTitle title={'My friends'}/>*/}
-      <Accordion title={'Menu'} collapsed={collapsed} collapsedChange={collapsedChange}/>
+      <Accordion
+        title={'Menu'}
+        items={[{id: 1, title: "JS"}, {id: 2, title: "CSS"}]}
+        collapsed={collapsed}
+        collapsedChange={collapsedChange}
+        onClick={onClick}
+      />
       {/*<Accordion title={'Users'} collapsed={true}/>*/}
-      <UncontrolledAccordion title={'tasks'}/>
+      <UncontrolledAccordion title={'Tasks'}/>
       <Rating
         state={state}
         valueStarChange={setValue}
@@ -62,6 +84,7 @@ function App() {
       {/*<OnOff setActive={setActive} active={active}/>*/}
       <UncontrolledInput/>
       <ControlledInput value={inputValue} setInputValue={setInputValue}/>
+      <Select stateSelect={stateSelect}/>
     </div>
   )
 }
