@@ -21,7 +21,7 @@ export type StateType = {
 }
 
 export type StateSelectType = {
-  id: string
+  value: string
   title: string
 }
 
@@ -37,15 +37,21 @@ function App() {
   ]
 
   const stateSelect: StateSelectType[] = [
-    {id: '1', title: 'js'},
-    {id: '2', title: 'css'},
-    {id: '3', title: 'react'},
+    {value: '1', title: 'js'},
+    {value: '2', title: 'css'},
+    {value: '3', title: 'react'},
   ]
 
   const [value, setValue] = useState<ValueType>(0)
   const [collapsed, setCollapsed] = useState<boolean>(false)
   const [active, setActive] = useState(false);
   const [inputValue, setInputValue] = useState('')
+  const [selectValue, setSelectValue] = useState<string | null>('2')
+
+  // Select
+  const onSelectClick = (value: string) => {
+    setSelectValue(value)
+  }
 
   const collapsedChange = () => {
     setCollapsed(!collapsed)
@@ -84,7 +90,7 @@ function App() {
       {/*<OnOff setActive={setActive} active={active}/>*/}
       <UncontrolledInput/>
       <ControlledInput value={inputValue} setInputValue={setInputValue}/>
-      <Select stateSelect={stateSelect}/>
+      <Select stateSelect={stateSelect} value={selectValue} onSelectClick={onSelectClick}/>
     </div>
   )
 }
