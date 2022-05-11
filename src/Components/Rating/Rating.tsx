@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useMemo} from "react";
 import Star from "./Star/Star";
 import {StateType} from "../../App";
 
@@ -10,20 +10,25 @@ type RatingPropsType = {
   valueStarChange: (value: ValueType) => void
 }
 
-function Rating(props: RatingPropsType) {
+const StarMemo = React.memo(Star)
 
-  const newState = props.state.map(s => <Star
-    key={s.id}
-    selected={props.value >= s.value}
-    state={s}
-    valueStarChange={props.valueStarChange}
-  />)
+function Rating(props: RatingPropsType) {
+  console.log('Rating')
+
+  const newState = useMemo(() => {
+    return props.state.map(s => <StarMemo
+      key={s.id}
+      state={s}
+      selected={props.value >= s.value}
+      valueStarChange={props.valueStarChange}
+    />)
+  }, [props.state])
 
   return (
-    <div>
+    <div>контр----
       {newState}
     </div>
   )
 }
 
-export default Rating;
+export default React.memo(Rating);

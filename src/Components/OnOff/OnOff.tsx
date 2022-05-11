@@ -7,6 +7,7 @@ type OnOffPropsType = {
 }
 
 function OnOff(props: OnOffPropsType) {
+  console.log('OnOff')
 
   const indicatorStyle = {
     width: '15px',
@@ -25,6 +26,7 @@ function OnOff(props: OnOffPropsType) {
 
   return (
     <div>
+      контр
       <button style={onStyle} onClick={() => {props.setActive(true)}}>on</button>
       <button style={offStyle} onClick={() => {props.setActive(false)}}>off</button>
       <div style={indicatorStyle}></div>

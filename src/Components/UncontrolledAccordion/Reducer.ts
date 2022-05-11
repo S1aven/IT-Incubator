@@ -20,6 +20,4 @@ export const reducer = (state: StateType, action: ActionType): StateType => {
     default:
       throw new Error("Bad action type")
   }
-
-  // return state
 }

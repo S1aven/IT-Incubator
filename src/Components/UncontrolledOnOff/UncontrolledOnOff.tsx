@@ -6,6 +6,7 @@ type OnOffPropsType = {
 }
 
 function UncontrolledOnOff(props: OnOffPropsType) {
+  console.log('UncontrolledOnOff')
 
   const [active, setActive] = useState(false);
 
@@ -35,7 +36,7 @@ function UncontrolledOnOff(props: OnOffPropsType) {
   }
 
   return (
-    <div>
+    <div>неконтр
       <button
         style={onStyle}
         onClick={onClicked}>on

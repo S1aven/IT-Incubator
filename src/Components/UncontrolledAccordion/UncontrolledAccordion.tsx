@@ -1,4 +1,4 @@
-import React, {useReducer} from "react";
+import React, {useReducer, useState} from "react";
 import UncontrolledAccordionTitle from "./UncontrolledAccordionTitle/UncontrolledAccordionTitle";
 import UncontrolledAccordionBody from "./UncontrolledAccordionBody/UncontrolledAccordionBody";
 import {reducer, TOGGLE_COLLAPSED} from "./Reducer";
@@ -6,6 +6,9 @@ import {reducer, TOGGLE_COLLAPSED} from "./Reducer";
 type AccordionPropsType = {
   title: string
 }
+
+const UncontrolledAccordionTitleMemo = React.memo(UncontrolledAccordionTitle)
+const UncontrolledAccordionBodyMemo = React.memo(UncontrolledAccordionBody)
 
 function UncontrolledAccordion(props: AccordionPropsType) {
   console.log('UncontrolledAccordion rendering');
@@ -15,12 +18,13 @@ function UncontrolledAccordion(props: AccordionPropsType) {
 
   const activeCollapsed = () => {
     dispatch({type: TOGGLE_COLLAPSED})
+    // setCollapsed(!collapsed)
   }
 
   return (
     <div>
-      <UncontrolledAccordionTitle activeCollapsed={activeCollapsed} title={props.title}/>
-      {!state.collapsed && <UncontrolledAccordionBody/>}
+      <UncontrolledAccordionTitleMemo activeCollapsed={activeCollapsed} title={props.title}/>
+      {!state.collapsed && <UncontrolledAccordionBodyMemo/>}
     </div>
   )
 }

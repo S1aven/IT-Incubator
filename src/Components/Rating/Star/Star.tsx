@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useCallback, useMemo} from "react";
 import {StateType} from "../../../App";
 import {ValueType} from "../../UncontrolledRating/UncontrolledRating";
 
@@ -9,8 +9,8 @@ type StarPropsType = {
 }
 
 function Star(props: StarPropsType) {
+  console.log('Star rendering');
 
-  console.log('UncontrolledStar rendering');
   return (
     <>
       <span onClick={() => {

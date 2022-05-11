@@ -1,7 +1,7 @@
-import React from "react";
+import React, {useCallback, useMemo} from "react";
 
 type AccordionBodyPropsType = {
-  items: {
+  AccordionItems: {
     id: any
     title: string
   }[]
@@ -9,10 +9,15 @@ type AccordionBodyPropsType = {
 }
 
 function AccordionBody(props: AccordionBodyPropsType) {
+  console.log('AccordionBody rendering')
+
+  let accordionBody = useMemo(() => {
+    return  props.AccordionItems.map(i => <li onClick={() => {props.onClick(i.id)}} key={i.id}>{i.title}</li>)
+  }, [props.AccordionItems])
 
   return (
       <ul>
-        {props.items.map(i => <li onClick={() => {props.onClick(i.id)}} key={i.id}>{i.title}</li>)}
+        {accordionBody}
       </ul>
   )
 }

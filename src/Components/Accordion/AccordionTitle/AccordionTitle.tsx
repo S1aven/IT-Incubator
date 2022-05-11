@@ -2,13 +2,13 @@ import React from "react";
 
 type AccordionTitlePropsType = {
   title: string
-  collapsedChange: (collapsed: boolean) => void
+  collapsedChange: () => void
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
-  console.log('UncontrolledAccordionTitle rendering');
+  console.log('AccordionTitle rendering');
   return (
-    <h3 onClick={() => {props.collapsedChange(true)}}>{props.title}</h3>
+    <h3 onClick={() => {props.collapsedChange()}}>{props.title}</h3>
   )
 }
 

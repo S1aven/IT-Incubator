@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {ReactNode, useMemo, useState} from "react";
 import UncontrolledStar from "./Star/UncontrolledStar";
 
 export type ValueType =0 | 1 | 2 | 3 | 4 | 5
@@ -9,7 +9,10 @@ export type StateType = {
   value: ValueType
 }
 
+const UncontrolledStarMemo = React.memo(UncontrolledStar)
+
 function UncontrolledRating() {
+  console.log('UncontrolledRating')
 
   const state: StateType[] = [
     {id: 1, title: "star_1 " , value: 1},
@@ -25,15 +28,24 @@ function UncontrolledRating() {
     setValue(value)
   }
 
-  const newState = state.map(s => <UncontrolledStar
-    key={s.id}
-    state={s}
-    selected={value >= s.value}
-    valueChange={valueChange}
-  />)
+  const newState = useMemo(() => {
+    return state.map(s => <UncontrolledStarMemo
+      key={s.id}
+      state={s}
+      selected={value >= s.value}
+      valueChange={valueChange}
+    />)
+  }, [state])
+
+  // const newState = state.map(s => <UncontrolledStarMemo
+  //   key={s.id}
+  //   state={s}
+  //   selected={value >= s.value}
+  //   valueChange={valueChange}
+  // />)
 
   return (
-    <div>
+    <div>неконтр-----
       {newState}
     </div>
   )

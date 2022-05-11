@@ -2,3 +2,8 @@
   width: 600px;
   margin: 20px auto;
 }
+
+.SelectGroup {
+  display: flex;
+  margin-bottom: 200px;
+}

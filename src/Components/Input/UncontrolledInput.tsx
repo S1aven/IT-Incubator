@@ -2,6 +2,8 @@ import React, {useRef, useState} from 'react';
 
 export function UncontrolledInput() {
 
+  console.log('UncontrolledInput')
+
   const [value, setValue] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
 

@@ -6,10 +6,10 @@ type PropsType = {
 }
 
 export function ControlledInput(props: PropsType) {
+  console.log('ControlledInput')
 
   const [checkedValue, setCheckedValue] = useState(true)
   const [selectValue, setSelectValue] = useState<string | undefined>(undefined)
-  console.log(selectValue)
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     props.setInputValue(e.currentTarget.value)
@@ -23,7 +23,7 @@ export function ControlledInput(props: PropsType) {
 
 
   return (
-    <>
+    <> контролир импут
       <div>
         <input value={props.value} onChange={onChange}/>
       </div>

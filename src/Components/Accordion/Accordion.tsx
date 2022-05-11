@@ -5,21 +5,24 @@ import AccordionBody from "./AccordionBody/AccordionBody";
 type AccordionPropsType = {
   title: string
   collapsed: boolean
-  collapsedChange: (collapsed: boolean) => void
-  items: {
+  collapsedChange: () => void
+  AccordionItems: {
     id: number
     title: string
   }[]
   onClick: (id: number) => void
 }
 
+const AccordionTitleMemo = React.memo(AccordionTitle)
+const AccordionBodyMemo = React.memo(AccordionBody)
+
 function Accordion(props: AccordionPropsType) {
-  console.log('UncontrolledAccordion rendering');
+  console.log('Accordion rendering');
 
   return (
     <div>
-      <AccordionTitle title={props.title} collapsedChange={props.collapsedChange}/>
-      {!props.collapsed && <AccordionBody onClick={props.onClick} items={props.items}/>}
+      <AccordionTitleMemo title={props.title} collapsedChange={props.collapsedChange}/>
+      {props.collapsed && <AccordionBodyMemo onClick={props.onClick} AccordionItems={props.AccordionItems}/>}
     </div>
   )
 }

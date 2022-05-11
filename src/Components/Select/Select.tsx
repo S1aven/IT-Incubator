@@ -9,6 +9,7 @@ type PropsType = {
 }
 
 export const Select: React.FC<PropsType> = (props) => {
+  console.log('Select')
 
   const [collapsed, setCollapsed] = useState<boolean>(false)
   const [hoveredElementValue, setHoveredElementValue] = useState<string | null>(props.value)
