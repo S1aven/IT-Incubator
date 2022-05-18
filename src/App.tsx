@@ -15,6 +15,7 @@ import {DifficultCountingExample, HelpsToReactMemo} from "./Components/UseMemo/U
 import {UseState} from "./Components/UseState/UseState";
 import {UseEffect} from "./Components/UseEffect/UseEffect";
 import {SetTimeout} from "./Components/SetTimeout/SetTimeout";
+import {Clock} from "./Components/Clock/Clock";
 
 type ValueType = 0 | 1 | 2 | 3 | 4 | 5
 
@@ -153,6 +154,7 @@ function App() {
       <UseStateReactMemo/>
       {/*<UseEffectReactMemo/>*/}
       <SetTimeoutReactMemo/>
+      <Clock/>
     </div>
   )
 }
