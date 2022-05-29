@@ -16,6 +16,7 @@ import {UseState} from "./Components/UseState/UseState";
 import {UseEffect} from "./Components/UseEffect/UseEffect";
 import {SetTimeout} from "./Components/SetTimeout/SetTimeout";
 import {Clock} from "./Components/Clock/Clock";
+import {KeysTracker, ResetUseEffect} from "./Components/ResetUseEffect/ResetUseEffect";
 
 type ValueType = 0 | 1 | 2 | 3 | 4 | 5
 
@@ -50,6 +51,7 @@ const HelpsToReactMemoMemo = React.memo(HelpsToReactMemo)
 const UseStateReactMemo = React.memo(UseState)
 const UseEffectReactMemo = React.memo(UseEffect)
 const SetTimeoutReactMemo = React.memo(SetTimeout)
+const ResetUseEffectMemo = React.memo(ResetUseEffect)
 
 function App() {
   console.log('App rendering');
@@ -155,6 +157,8 @@ function App() {
       {/*<UseEffectReactMemo/>*/}
       <SetTimeoutReactMemo/>
       <Clock/>
+      <ResetUseEffectMemo/>
+      <KeysTracker/>
     </div>
   )
 }
